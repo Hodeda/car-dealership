@@ -1,4 +1,8 @@
-<form (ngSubmit)="submitForm()" #carForm="ngForm" class="car-dealership-form">
+<form
+  [formGroup]="carForm"
+  (ngSubmit)="submitForm()"
+  class="car-dealership-form"
+>
   <div class="form-header">
     <h1 class="form-title">Find a car</h1>
     <p class="form-sub-header">
@@ -6,21 +10,16 @@
       "Submit" and we'll get back to you.
     </p>
   </div>
+
   <div class="form-row">
     <div class="category">
       <h2>Personal Details</h2>
       <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="Full Name"
-          name="fullName"
-          ngModel
-          required
-        />
+        <input matInput placeholder="Full Name" formControlName="fullName" />
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-select placeholder="Gender" name="gender" ngModel required>
+        <mat-select placeholder="Gender" formControlName="gender">
           <mat-option value="male">Male</mat-option>
           <mat-option value="female">Female</mat-option>
         </mat-select>
@@ -31,9 +30,7 @@
           matInput
           type="email"
           placeholder="Email"
-          name="email"
-          ngModel
-          required
+          formControlName="email"
         />
       </mat-form-field>
 
@@ -42,9 +39,7 @@
           matInput
           [matDatepicker]="picker"
           placeholder="Birth Date"
-          name="birthDate"
-          ngModel
-          required
+          formControlName="birthDate"
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -54,26 +49,16 @@
     <div class="category">
       <h2>Location Details</h2>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Address" name="address" ngModel required />
+        <input matInput placeholder="Address" formControlName="address" />
       </mat-form-field>
 
-      <div class="full-width">
-        <mat-form-field>
-          <input matInput placeholder="City" name="city" ngModel required />
-        </mat-form-field>
-      </div>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="City" formControlName="city" />
+      </mat-form-field>
 
-      <div class="full-width">
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Country"
-            name="country"
-            ngModel
-            required
-          />
-        </mat-form-field>
-      </div>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Country" formControlName="country" />
+      </mat-form-field>
     </div>
   </div>
 
@@ -81,7 +66,7 @@
     <div class="category">
       <h2>Hobbies</h2>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Hobbies" name="hobbies" ngModel required />
+        <input matInput placeholder="Hobbies" formControlName="hobbies" />
       </mat-form-field>
     </div>
 
@@ -91,9 +76,7 @@
         <input
           matInput
           placeholder="Favorite Color"
-          name="favoriteColor"
-          ngModel
-          required
+          formControlName="favoriteColor"
         />
       </mat-form-field>
 
@@ -101,15 +84,13 @@
         <input
           matInput
           type="number"
-          placeholder="Required Seats"
-          name="requiredSeats"
-          ngModel
-          required
+          placeholder="Required Seats (2-7)"
+          formControlName="requiredSeats"
         />
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <mat-select placeholder="Motor Type" name="motorType" ngModel required>
+        <mat-select placeholder="Motor Type" formControlName="motorType">
           <mat-option value="electric">Electric</mat-option>
           <mat-option value="fuel">Fuel</mat-option>
         </mat-select>
