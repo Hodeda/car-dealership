@@ -1,0 +1,49 @@
+.car-dealership-form {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.form-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.form-sub-header {
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: "Roboto";
+  text-align: center;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.category {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .category {
+    width: 100%;
+  }
+}

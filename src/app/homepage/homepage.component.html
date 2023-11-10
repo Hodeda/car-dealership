@@ -1,0 +1,24 @@
+<div class="homepage">
+  <div class="homepage-header">
+    <img src="assets/images/mercedes.webp" alt="car Image" />
+    <div class="inventory-description">
+      <h1 class="homepage-welcome-header">Pre-Owned Inventory</h1>
+      <p class="homepage-welcome-sub-header">
+        Explore excellence at Rosenthal, your destination for curated pre-owned
+        cars. Our team ensures a personalized experience, matching you with the
+        perfect vehicle that combines style and performance. Welcome to
+        Rosenthal – where your dream car awaits.
+      </p>
+
+      <button (click)="scrollToFindCar()" class="find-car-button">
+        Find me a Car &rsaquo;
+      </button>
+    </div>
+  </div>
+
+  <app-car-brands></app-car-brands>
+
+  <hr class="thin-grey-line" />
+
+  <app-find-car-form id="app-find-car"></app-find-car-form>
+</div>

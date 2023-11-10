@@ -1,0 +1,86 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.homepage-header {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 500px;
+}
+
+.homepage-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.homepage-header .inventory-description {
+  position: relative;
+  z-index: 1;
+  top: 5vw;
+}
+
+.homepage-header h1,
+.homepage-header p,
+.homepage-header button {
+  position: relative;
+}
+
+.inventory-description {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-left: 5%;
+  align-items: center;
+  gap: 10px;
+}
+
+.homepage-welcome-header {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.homepage-welcome-sub-header {
+  font-size: 1.2rem;
+  margin-top: 0;
+  font-weight: 400;
+  font-family: "Roboto";
+}
+
+.find-car-button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.find-car-button:hover {
+  background-color: #e0e0e0;
+  transition: 0.3s ease-in-out;
+}
+
+.thin-grey-line {
+  border: 0;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}
+
+@media (max-width: 767px) {
+  .inventory-description {
+    width: 90%;
+    margin-left: 5%;
+  }
+}

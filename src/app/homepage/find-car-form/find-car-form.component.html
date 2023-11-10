@@ -1,0 +1,130 @@
+<form (ngSubmit)="submitForm()" #carForm="ngForm" class="car-dealership-form">
+  <div class="form-header">
+    <h1 class="form-title">Find a car</h1>
+    <p class="form-sub-header">
+      Fill out the form below to find your dream car, once finished click
+      "Submit" and we'll get back to you.
+    </p>
+  </div>
+  <div class="form-row">
+    <div class="category">
+      <h2>Personal Details</h2>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Full Name"
+          name="fullName"
+          ngModel
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Gender" name="gender" ngModel required>
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          type="email"
+          placeholder="Email"
+          name="email"
+          ngModel
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Birth Date"
+          name="birthDate"
+          ngModel
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="category">
+      <h2>Location Details</h2>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Address" name="address" ngModel required />
+      </mat-form-field>
+
+      <div class="full-width">
+        <mat-form-field>
+          <input matInput placeholder="City" name="city" ngModel required />
+        </mat-form-field>
+      </div>
+
+      <div class="full-width">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Country"
+            name="country"
+            ngModel
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="category">
+      <h2>Hobbies</h2>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Hobbies" name="hobbies" ngModel required />
+      </mat-form-field>
+    </div>
+
+    <div class="category">
+      <h2>Other Details</h2>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Favorite Color"
+          name="favoriteColor"
+          ngModel
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          type="number"
+          placeholder="Required Seats"
+          name="requiredSeats"
+          ngModel
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Motor Type" name="motorType" ngModel required>
+          <mat-option value="electric">Electric</mat-option>
+          <mat-option value="fuel">Fuel</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="carForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

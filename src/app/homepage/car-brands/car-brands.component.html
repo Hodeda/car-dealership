@@ -1,0 +1,9 @@
+<div class="car-brands-container">
+  <h1 class="car-brands-header">Our brands</h1>
+  <div class="car-cards-container">
+    <app-car-card
+      *ngFor="let carBrand of carBrands"
+      [carBrand]="carBrand"
+    ></app-car-card>
+  </div>
+</div>
