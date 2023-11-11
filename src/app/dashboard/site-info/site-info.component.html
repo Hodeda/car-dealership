@@ -1,0 +1,43 @@
+<div class="site-info-dashboard">
+  <div class="site-info-container">
+    <div class="site-stats">
+      <div class="site-info-img-container">
+        <img
+          width="50px"
+          height="50px"
+          src="assets/icons/document.svg"
+          alt=""
+        />
+      </div>
+      <div class="info-container">
+        <p>Requests Filled</p>
+        <p>{{ totalForms }}</p>
+      </div>
+    </div>
+    <div class="site-stats middle-stats-container">
+      <div class="site-info-img-container">
+        <img width="50px" height="50px" src="assets/icons/users.svg" alt="" />
+      </div>
+      <div class="info-container">
+        <p>Site Visitors</p>
+        <p>{{ totalVisits }}</p>
+      </div>
+    </div>
+    <div class="site-stats">
+      <div class="site-info-img-container">
+        <img
+          width="50px"
+          height="50px"
+          src="assets/icons/statisic-alt.svg"
+          alt=""
+        />
+      </div>
+      <div class="info-container">
+        <p>
+          {{ formCompletionRate | number : "1.0-1" }}% of visitors that filled
+          the form successfully
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

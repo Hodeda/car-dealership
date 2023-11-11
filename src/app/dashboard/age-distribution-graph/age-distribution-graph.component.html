@@ -1,0 +1,10 @@
+<div
+  id="chartContainerAgeDistribution"
+  style="height: 300px; width: 100%"
+></div>
+
+<app-no-data-card
+  *ngIf="forms.length === 0"
+  header="Clients Age Distribution"
+  message="There are no submissions yet"
+></app-no-data-card>

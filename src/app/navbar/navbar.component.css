@@ -9,3 +9,17 @@
   display: flex;
   gap: 16px;
 }
+
+.navbar-link {
+  cursor: pointer;
+}
+
+.navbar-link.active {
+  border-bottom: 2px solid #008dff;
+}
+
+@media (max-width: 600px) {
+  .navbar-link-container {
+    display: none;
+  }
+}

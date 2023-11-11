@@ -21,7 +21,16 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatChipsModule } from '@angular/material/chips';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { SiteInfoComponent } from './dashboard/site-info/site-info.component';
+import { VisitorsHobbyPieComponent } from './dashboard/visitors-hobby-pie/visitors-hobby-pie.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { EngineTypeGenderChartComponent } from './dashboard/engine-type-gender-chart/engine-type-gender-chart.component';
+import { LastSubmissionsTableComponent } from './dashboard/last-submissions-table/last-submissions-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { NoDataCardComponent } from './shared/no-data-card/no-data-card.component';
+import { AgeDistributionGraphComponent } from './dashboard/age-distribution-graph/age-distribution-graph.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -33,6 +42,12 @@ import { MatChipsModule } from '@angular/material/chips';
     CarCardComponent,
     FindCarFormComponent,
     FooterComponent,
+    SiteInfoComponent,
+    VisitorsHobbyPieComponent,
+    EngineTypeGenderChartComponent,
+    LastSubmissionsTableComponent,
+    NoDataCardComponent,
+    AgeDistributionGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,8 +62,11 @@ import { MatChipsModule } from '@angular/material/chips';
     MatFormFieldModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatChipsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ColorPickerModule,
+    CanvasJSAngularChartsModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

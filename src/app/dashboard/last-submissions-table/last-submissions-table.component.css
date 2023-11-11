@@ -1,0 +1,25 @@
+.table-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+  .table-container {
+    padding: 0px;
+    overflow-x: auto;
+  }
+  .header-table-stats {
+    text-align: center;
+  }
+}

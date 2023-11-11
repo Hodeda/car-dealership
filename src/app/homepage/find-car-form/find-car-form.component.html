@@ -43,6 +43,24 @@
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="carForm.controls.birthDate.hasError('futureDate')">
+          Birth date cannot be in the future.
+        </mat-error>
+        <mat-error *ngIf="carForm.controls.birthDate.hasError('notMinimumAge')">
+          You must be at least 18 years old.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Hobbies" formControlName="hobbies" multiple>
+          <mat-option *ngFor="let hobby of hobbiesList" [value]="hobby">
+            <mat-checkbox
+              [checked]="carForm.controls.hobbies.value.includes(hobby)"
+            >
+              {{ hobby }}
+            </mat-checkbox>
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 
@@ -63,22 +81,24 @@
   </div>
 
   <div class="form-row">
-    <div class="category">
-      <h2>Hobbies</h2>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Hobbies" formControlName="hobbies" />
-      </mat-form-field>
-    </div>
-
-    <div class="category">
+    <div style="width: 100%" class="other-details-category">
       <h2>Other Details</h2>
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="Favorite Color"
-          formControlName="favoriteColor"
-        />
-      </mat-form-field>
+
+      <span
+        [colorPicker]="carForm.controls['favoriteColor'].value"
+        (colorPickerChange)="changeColor($event)"
+        [cpToggle]="colorPickerToggle"
+        [cpDialogDisplay]="'inline'"
+        placeholder="Favorite Color"
+      ></span>
+
+      <button
+        type="button"
+        class="pick-color-button"
+        (click)="colorPickerToggle = !colorPickerToggle"
+      >
+        Pick a Color
+      </button>
 
       <mat-form-field class="full-width">
         <input

@@ -1,0 +1,48 @@
+<div *ngIf="forms.length > 0" class="table-container">
+  <h3 class="header-table-stats">Last 10 Submissions</h3>
+  <mat-table
+    [dataSource]="recentSubmissionsDataSource"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="fullName">
+      <mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.fullName }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.gender }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="motorType">
+      <mat-header-cell *matHeaderCellDef> Motor type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.motorType }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="favoriteColor">
+      <mat-header-cell *matHeaderCellDef> Favorite color </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div
+          class="color-box"
+          [style.background-color]="element.favoriteColor"
+        ></div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="requiredSeats">
+      <mat-header-cell *matHeaderCellDef> Required seats </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.requiredSeats }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+
+<app-no-data-card
+  *ngIf="forms.length === 0"
+  header="Last 10 Submissions"
+  message="There are no submissions yet"
+></app-no-data-card>

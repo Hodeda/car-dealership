@@ -1,0 +1,11 @@
+<canvasjs-chart
+  *ngIf="forms.length > 0"
+  style="height: 300px; width: 100%"
+  [options]="chartOptions"
+></canvasjs-chart>
+
+<app-no-data-card
+  *ngIf="forms.length === 0"
+  header="Visitors Hobbies Stats"
+  message="There are no submissions yet"
+></app-no-data-card>

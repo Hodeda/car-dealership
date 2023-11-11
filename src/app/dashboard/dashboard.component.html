@@ -1,1 +1,36 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="dashboard-stats-row">
+    <app-site-info class="stats"></app-site-info>
+  </div>
+
+  <div class="dashboard-stats-row charts">
+    <app-visitors-hobby-pie
+      class="chart"
+      [forms]="forms"
+    ></app-visitors-hobby-pie>
+    <app-engine-type-gender-chart
+      class="chart"
+      [forms]="forms"
+      [data]="engineTypeByGenderData"
+    ></app-engine-type-gender-chart>
+  </div>
+  <div class="dashboard-stats-row tables">
+    <app-last-submissions-table
+      style="width: 100%"
+      [forms]="forms"
+    ></app-last-submissions-table>
+  </div>
+  <div
+    class="dashboard-stats-row"
+    [ngStyle]="
+      forms && forms.length > 0
+        ? { 'justify-content': 'flex-start' }
+        : { 'justify-content': 'center' }
+    "
+  >
+    <app-age-distribution-graph
+      class="minimized-chart"
+      [forms]="forms"
+    ></app-age-distribution-graph>
+  </div>
+</div>

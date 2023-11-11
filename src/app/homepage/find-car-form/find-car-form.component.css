@@ -33,13 +33,32 @@
   justify-content: space-between;
 }
 
-.category {
+.category,
+.other-details-category {
   width: 48%;
   margin-bottom: 20px;
 }
 
+.other-details-category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
 .full-width {
   width: 100%;
+}
+
+.pick-color-button {
+  color: white;
+  background-color: #008dff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 @media (max-width: 600px) {

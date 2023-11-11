@@ -3,9 +3,20 @@
     width="100px"
     src="/assets/images/rosenthal_dealership_logo.png"
     alt="dealership logo"
+    (click)="navigateTo('/')"
   />
   <div class="navbar-link-container">
-    <span class="navbar-link">Home</span>
-    <span class="navbar-link">Dashboard</span>
+    <span
+      class="navbar-link"
+      [class.active]="currentRoute === '/'"
+      (click)="navigateTo('/')"
+      >Home</span
+    >
+    <span
+      class="navbar-link"
+      [class.active]="currentRoute === '/dashboard'"
+      (click)="navigateTo('/dashboard')"
+      >Dashboard</span
+    >
   </div>
 </div>
