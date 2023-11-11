@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit  } from '@angular/core';
 import { CanvasJS } from '@canvasjs/angular-charts';
 
 @Component({
@@ -6,7 +6,7 @@ import { CanvasJS } from '@canvasjs/angular-charts';
   templateUrl: './age-distribution-graph.component.html',
   styleUrls: ['./age-distribution-graph.component.css']
 })
-export class AgeDistributionGraphComponent implements OnInit {
+export class AgeDistributionGraphComponent implements OnInit, AfterViewInit  {
 
   @Input() forms: any[];
 
@@ -25,8 +25,15 @@ export class AgeDistributionGraphComponent implements OnInit {
     }
   }
 
-  createChart(ageGroups) {
+  ngAfterViewInit() {
+    if (this.forms.length > 0) {
+      this.createChart(this.ageGroups);
+    }
+  }
 
+  createChart(ageGroups) {
+    const chartContainer = document.getElementById("chartContainerAgeDistribution");
+    if(chartContainer) {
     let chart = new CanvasJS.Chart("chartContainerAgeDistribution", {
       animationEnabled: true,
       exportEnabled: true,
@@ -44,8 +51,9 @@ export class AgeDistributionGraphComponent implements OnInit {
         ]
       }]
     });
-  
+    
     chart.render();
+  }
   }
 
   calculateAgeGroups() {

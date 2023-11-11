@@ -16,14 +16,14 @@ export class FindCarFormComponent implements OnInit {
   public colorPickerToggle: boolean = false;
   public hobbiesList: string[] = ['Reading', 'Gaming', 'Traveling', 'Cooking', 'Sports'];
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private cpService: ColorPickerService, private carService: FormService, private sanitizer: DomSanitizer) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private cpService: ColorPickerService, private carService: FormService, private sanitizer: DomSanitizer,) {
   }
 
   ngOnInit() {
-    this.resetForm()
+    this.InitiateForm()
   }
   
-  resetForm() {
+  InitiateForm() {
     this.carForm = this.fb.group({
       fullName: ['', [Validators.required, this.noNumbersValidator()]],
       gender: ['', [Validators.required]],
@@ -35,7 +35,8 @@ export class FindCarFormComponent implements OnInit {
       hobbies: [[], [Validators.required]],
       favoriteColor: ['', [Validators.required]],
       requiredSeats: ['', [Validators.required, Validators.min(2), Validators.max(7)]],
-      motorType: ['', [Validators.required]]
+      motorType: ['', [Validators.required]],
+      timestamp: ['']
     });
 
     
@@ -44,9 +45,10 @@ export class FindCarFormComponent implements OnInit {
   
   submitForm() {
     if (this.carForm.valid) {
+      this.carForm.controls['timestamp'].setValue(new Date().getTime());
       const sanitizedData = this.sanitizeInput(this.carForm.value);
-      this.carService.addToLocalStorage(this.carForm.value);
-      this.resetForm()
+      this.carService.addToLocalStorage(sanitizedData);
+      this.resetAndCloseForm()
       this.snackBar.open('Form submitted successfully! We will send an email with your match.', 'Close', {
         duration: 3000,
         panelClass: ['success-snackbar']
@@ -61,7 +63,7 @@ export class FindCarFormComponent implements OnInit {
   }
 
   changeColor(color: string) {
-    this.carForm.controls['favoriteColor'].setValue(color);
+    this.carForm.controls['favoriteColor'].setValue(color);      
     this.colorPickerToggle = false;
   }
 
@@ -102,6 +104,8 @@ export class FindCarFormComponent implements OnInit {
   sanitizeInput(input: any): any {
     if (typeof input === 'string') {
       return this.sanitizer.sanitize(SecurityContext.HTML, input);
+    } else if (input instanceof Date) {
+      return input;
     } else if (Array.isArray(input)) {
       return input.map(item => this.sanitizeInput(item));
     } else if (typeof input === 'object' && input !== null) {
@@ -114,4 +118,22 @@ export class FindCarFormComponent implements OnInit {
       return input;
     }
   }
+  
+
+  resetAndCloseForm() {
+    this.carForm.reset();
+
+    Object.keys(this.carForm.controls).forEach(key => {
+      const control = this.carForm.controls[key];
+      control.markAsPristine();
+      control.markAsUntouched();
+      control.setErrors(null);
+    });
+
+    this.carForm.setErrors({ manualInvalidation: true });
+    this.colorPickerToggle = false;
+  }
+  
+
+
 }

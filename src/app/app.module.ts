@@ -31,6 +31,8 @@ import { MatTableModule } from '@angular/material/table';
 import { NoDataCardComponent } from './shared/no-data-card/no-data-card.component';
 import { AgeDistributionGraphComponent } from './dashboard/age-distribution-graph/age-distribution-graph.component';
 import {MatIconModule} from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import {MatIconModule} from '@angular/material/icon';
     ColorPickerModule,
     CanvasJSAngularChartsModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

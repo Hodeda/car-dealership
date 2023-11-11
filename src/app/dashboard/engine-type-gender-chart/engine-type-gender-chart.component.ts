@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { CanvasJS } from '@canvasjs/angular-charts';
 
 @Component({
@@ -6,11 +6,16 @@ import { CanvasJS } from '@canvasjs/angular-charts';
   templateUrl: './engine-type-gender-chart.component.html',
   styleUrls: ['./engine-type-gender-chart.component.css']
 })
-export class EngineTypeGenderChartComponent implements OnInit {
+export class EngineTypeGenderChartComponent implements AfterViewInit {
   @Input() data: any;
   @Input() forms: any[];
 
-  ngOnInit() {
+    
+
+  ngAfterViewInit() {
+    if(this.forms.length > 0) {
+      const chartContainer = document.getElementById("chartContainerAgeDistribution");
+      if(chartContainer) {
     const chartData = this.prepareChartData(this.data);
     let chart = new CanvasJS.Chart("chartContainerEngineTypeGender", {
       animationEnabled: true,
@@ -27,6 +32,8 @@ export class EngineTypeGenderChartComponent implements OnInit {
       data: chartData
     });
       chart.render();
+  }
+  }
   }
 
   prepareChartData(data: any): any[] {

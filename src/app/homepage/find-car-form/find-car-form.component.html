@@ -55,7 +55,11 @@
         <mat-select placeholder="Hobbies" formControlName="hobbies" multiple>
           <mat-option *ngFor="let hobby of hobbiesList" [value]="hobby">
             <mat-checkbox
-              [checked]="carForm.controls.hobbies.value.includes(hobby)"
+              [checked]="
+                carForm.controls.hobbies.value
+                  ? carForm.controls.hobbies.value.includes(hobby)
+                  : false
+              "
             >
               {{ hobby }}
             </mat-checkbox>

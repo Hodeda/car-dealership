@@ -18,8 +18,9 @@
   border-bottom: 2px solid #008dff;
 }
 
-@media (max-width: 600px) {
-  .navbar-link-container {
-    display: none;
-  }
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+@media screen and (max-width: 767px) {
 }

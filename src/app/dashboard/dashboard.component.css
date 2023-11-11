@@ -25,6 +25,10 @@
   width: 50%;
 }
 
+.charts {
+  gap: 40px;
+}
+
 @media (max-width: 767px) {
   .charts {
     flex-direction: column;

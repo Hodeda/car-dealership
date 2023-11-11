@@ -38,11 +38,11 @@ export class VisitorsHobbyPieComponent implements OnInit {
 
   calculateHobbyCount() {
     this.forms.forEach(form => {
-      if (form.hobbies.includes("Reading")) this.readingCount++;
-      if (form.hobbies.includes("Gaming")) this.gamingCount++;
-      if (form.hobbies.includes("Traveling")) this.travelingCount++;
-      if (form.hobbies.includes("Cooking")) this.cookingCount++;
-      if (form.hobbies.includes("Sports")) this.sportsCount++;
+      if (form?.hobbies?.includes("Reading")) this.readingCount++;
+      if (form?.hobbies?.includes("Gaming")) this.gamingCount++;
+      if (form?.hobbies?.includes("Traveling")) this.travelingCount++;
+      if (form?.hobbies?.includes("Cooking")) this.cookingCount++;
+      if (form?.hobbies?.includes("Sports")) this.sportsCount++;
     });
     this.setUpChart();
   }

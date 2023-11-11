@@ -5,7 +5,18 @@
     alt="dealership logo"
     (click)="navigateTo('/')"
   />
-  <div class="navbar-link-container">
+
+  <div *ngIf="isMobile" class="hamburger-icon">
+    <mat-icon mat-button [matMenuTriggerFor]="menu">menu</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="navigateTo('/')">Home</button>
+      <button mat-menu-item (click)="navigateTo('/dashboard')">
+        Dashboard
+      </button>
+    </mat-menu>
+  </div>
+
+  <div *ngIf="!isMobile || menuOpen" class="navbar-link-container">
     <span
       class="navbar-link"
       [class.active]="currentRoute === '/'"
